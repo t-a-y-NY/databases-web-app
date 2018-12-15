@@ -1,0 +1,29 @@
+{% extends "default-layout.html" %}
+
+{% block content %}
+    <h1>Adding form!</h1>
+    <form method="POST" action="">
+
+        <fieldset class="form-group">
+            <div class="form-group">
+                {{ form.friendgroup.label }}: {{ form.friendgroup }}
+            </div>
+
+            <div>
+                {{ form.fname.label }}: {{ form.fname }}
+            </div>
+
+            <div>
+                {{ form.lname.label }}: {{ form.lname }}
+            </div>
+
+        </fieldset>
+
+
+        <div>
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+
+        {{ form.csrf_token }}
+    </form>
+{% endblock content %}

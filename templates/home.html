@@ -1,0 +1,45 @@
+{% extends "default-layout.html" %}
+
+{% block content %}
+    <form method="POST" action="">
+        {% for n in itemstodisplay %}
+            <article class="">
+                <div class="">
+                    <h1>{{ n["item_id"], n["email_post"], n["post_time"], n["file_path"], n["item_name"] }}</h1>
+
+                    <div class="form-group">
+                        {{ form.email_taggee.label }}: {{ form.email_taggee }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.item_id.label }}: {{ form.item_id }}
+                    </div>
+
+                    <div>
+                        {{ form.submit(class="btn btn-outline-info") }}
+                    </div>
+
+                    {% for tag in tags %}
+                        {% if n["item_id"] in tags %}
+                            <h2>Tags: {{ tags[n["item_id"]] }}</h2>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% for r in ratings %}
+                        {% if n["item_id"] in ratings %}
+                            <h3>Ratings: {{ ratings[n["item_id"]] }}</h3>
+                        {% endif %}
+                    {% endfor %}
+                    <br>
+
+                    <img src="{{ n["file_path"] }}" alt="{{ n["item_name"] }}">
+                </div>
+            </article>
+        {% endfor %}
+
+
+        {{ form.csrf_token }}
+
+    </form>
+
+{% endblock content %}

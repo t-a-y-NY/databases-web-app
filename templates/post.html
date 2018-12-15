@@ -1,0 +1,51 @@
+{% extends "default-layout.html" %}
+
+{% block content %}
+    <h1>Posting Form!</h1>
+    <form method="POST" action="">
+
+        <fieldset class="form-group">
+            <div class="form-group">
+                {{ form.item_id.label }}: {{ form.item_id }}
+            </div>
+
+            <div>
+                {{ form.email_post.label(class="form-control-label") }}
+                {{ form.email_post(class="form-control form-control-lg") }}
+            </div>
+
+            <div>
+                {{ form.post_time.label(class="form-control-label") }}
+                {{ form.post_time(class="form-control form-control-lg") }}
+            </div>
+
+            <div>
+                {{ form.file_path.label(class="form-control-label") }}
+                {{ form.file_path(class="form-control form-control-lg") }}
+            </div>
+
+            <div class="form-check">
+                {{ form.item_name.label(class="form-control-label") }}
+                {{ form.item_name(class="form-control form-control-lg") }}
+            </div>
+
+            <div>
+                {{ form.is_pub.label(class="form-control-label") }}
+                {{ form.is_pub(class="form-control form-control-lg") }}
+            </div>
+
+            <div>
+                {{ form.group_name.label(class="form-control-label") }}
+                {{ form.group_name(class="form-control form-control-lg") }}
+            </div>
+
+        </fieldset>
+
+
+        <div>
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+
+        {{ form.csrf_token }}
+    </form>
+{% endblock content %}

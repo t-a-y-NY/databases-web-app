@@ -1,0 +1,14 @@
+{% extends "default-layout.html" %}
+
+{% block content %}
+    {% for item in itemsimtaggedin %}
+        <div class="">
+        <h1>Tagged in: {{ item["item_id"] }}. Press first button to accept tag, second button to decline.</h1>
+            <form method="POST">
+                <input type="submit" name="Accept" value="{{ item["item_id"] }}">
+                <input type="submit" name="Decline" value="{{ item["item_id"] }}">
+            </form>
+        <br>
+        </div>
+    {% endfor %}
+{% endblock content %}
